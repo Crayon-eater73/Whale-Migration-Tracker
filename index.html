@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whale Tracker Complete Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --background-color: #f8fafc;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0369a1, #0284c7);
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.25rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background-color: var(--card-background);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.25rem;
+            color: #0f172a;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .coords {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #0369a1;
+            background: #e0f2fe;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 0.2rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge.danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge.warning {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge.info {
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .badge.success {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .badge.muted {
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="margin: 0 auto;">
+            <h1>🐋 Whale Tracker Master Dashboard</h1>
+            <p>Comprehensive marine wildlife database containing species threat levels, tracking locations, and active whale telemetry logs.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. Species & Threat Levels Section -->
+        <section class="card">
+            <h2>Monitored Species & Threat Levels</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Species Name</th>
+                            <th>Threat Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>North Atlantic right whale (Eubalaena glacialis)</td>
+                            <td><span class="badge danger">Critically endangered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Humpback whale (Megaptera novaeangliae)</td>
+                            <td><span class="badge warning">Endangered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Blue whale</td>
+                            <td><span class="badge warning">Endangered</span></td>
+                        </tr>
+                        <tr>
+                            <td>Fin whale (Balaenoptera physalus)</td>
+                            <td><span class="badge info">Vulnerable</span></td>
+                        </tr>
+                        <tr>
+                            <td>Common minke whale (Balaenoptera acutorostrata)</td>
+                            <td><span class="badge info">Vulnerable</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sei whale (Balaenoptera borealis)</td>
+                            <td><span class="badge success">Least Concern</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sperm whale (Physeter macrocephalus)</td>
+                            <td><span class="badge success">Least Concern</span></td>
+                        </tr>
+                        <tr>
+                            <td>Cuviers beaked whale (Ziphius cavirostris)</td>
+                            <td><span class="badge success">Least Concern</span></td>
+                        </tr>
+                        <tr>
+                            <td>Beluga whale (Delphinapterus leucas)</td>
+                            <td><span class="badge success">Least Concern</span></td>
+                        </tr>
+                        <tr>
+                            <td>Orca / Killer whale (Orcinus orca)</td>
+                            <td><span class="badge muted">Varies by population</span></td>
+                        </tr>
+                        <tr>
+                            <td>Southern right whale</td>
+                            <td><span class="badge success">Least Concern</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. Tracking Locations Section -->
+        <section class="card">
+            <h2>Tracking Stations & Regions</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Location Name</th>
+                            <th>Region</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Gulf of St. Lawrence</td><td>Canada</td></tr>
+                        <tr><td>Cape Cod Bay</td><td>USA</td></tr>
+                        <tr><td>Stellwagen Bank</td><td>Gulf of Maine, USA</td></tr>
+                        <tr><td>South Shore Bermuda</td><td>North Atlantic Pelagic</td></tr>
+                        <tr><td>Emerald Basin</td><td>Scotian Shelf, Canada</td></tr>
+                        <tr><td>Bay of Fundy</td><td>Canada</td></tr>
+                        <tr><td>Faial Island</td><td>Mid-Atlantic Ridge / Azores</td></tr>
+                        <tr><td>Tadoussac</td><td>St. Lawrence Estuary, Canada</td></tr>
+                        <tr><td>Tarifa</td><td>Strait of Gibraltar / NE Atlantic</td></tr>
+                        <tr><td>Peninsula Valdes</td><td>South Atlantic, Patagonia</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 3. Master Whale Telemetry & Sightings Log Section -->
+        <section class="card">
+            <h2>Active Whale Telemetry & Sightings Log</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Whale ID</th>
+                            <th>Whale Name</th>
+                            <th>Whale Type</th>
+                            <th>Region</th>
+                            <th>Last Location (Coordinates)</th>
+                            <th>Last Sighted Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>NARW-4191</strong></td>
+                            <td>Dolly</td>
+                            <td>North Atlantic right whale</td>
+                            <td>Gulf of St. Lawrence, Canada</td>
+                            <td>off Gaspé Peninsula<br><span class="coords">48.4210° N, 63.8840° W</span></td>
+                            <td>2026-09-14</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NARW-5299</strong></td>
+                            <td>Nibbles</td>
+                            <td>North Atlantic right whale</td>
+                            <td>Cape Cod Bay, USA</td>
+                            <td>off Wellfleet, MA<br><span class="coords">41.8952° N, 70.2145° W</span></td>
+                            <td>2026-04-22</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NAHWC-1084</strong></td>
+                            <td>Salt</td>
+                            <td>Humpback whale</td>
+                            <td>Gulf of Maine, USA</td>
+                            <td>Stellwagen Bank<br><span class="coords">42.1480° N, 70.1820° W</span></td>
+                            <td>2026-10-08</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BMD-0002</strong></td>
+                            <td>Candle</td>
+                            <td>Humpback whale</td>
+                            <td>North Atlantic Pelagic</td>
+                            <td>South Shore, Bermuda<br><span class="coords">32.2815° N, 64.7890° W</span></td>
+                            <td>2026-03-30</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NEFSC-B0412</strong></td>
+                            <td>Cobalt</td>
+                            <td>Blue whale</td>
+                            <td>Scotian Shelf, Canada</td>
+                            <td>Emerald Basin<br><span class="coords">43.6520° N, 62.1140° W</span></td>
+                            <td>2026-08-19</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CCS-F0921</strong></td>
+                            <td>Streak</td>
+                            <td>Fin whale</td>
+                            <td>Bay of Fundy, Canada</td>
+                            <td>off Grand Manan<br><span class="coords">44.7610° N, 66.4520° W</span></td>
+                            <td>2026-09-27</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SEAMAP-S308</strong></td>
+                            <td>Vesper</td>
+                            <td>Sperm whale</td>
+                            <td>Mid-Atlantic Ridge / Azores</td>
+                            <td>off Faial Island<br><span class="coords">38.5120° N, 28.6340° W</span></td>
+                            <td>2026-07-11</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GREMM-DL144</strong></td>
+                            <td>Blanche</td>
+                            <td>Beluga whale</td>
+                            <td>St. Lawrence Estuary, Canada</td>
+                            <td>Tadoussac / Saguenay<br><span class="coords">48.1380° N, 69.7150° W</span></td>
+                            <td>2026-10-19</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GIB-OO019</strong></td>
+                            <td>Matriarch</td>
+                            <td>Orca (Killer whale)</td>
+                            <td>Strait of Gibraltar / NE Atlantic</td>
+                            <td>off Tarifa, Spain<br><span class="coords">35.9840° N, 5.6120° W</span></td>
+                            <td>2026-08-03</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SRW-PV774</strong></td>
+                            <td>Penelope</td>
+                            <td>Southern right whale</td>
+                            <td>South Atlantic (Patagonia)</td>
+                            <td>Peninsula Valdés, Argentina<br><span class="coords">42.6810° S, 64.2490° W</span></td>
+                            <td>2026-10-25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Whale Tracker Project. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
